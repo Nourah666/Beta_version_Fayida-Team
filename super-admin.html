@@ -165,7 +165,24 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <script>
+        // Norah part
+        const config = {
+            apiKey: "empty_for_now", 
+            authDomain: "fayida-team.firebaseapp.com",
+            projectId: "fayida-team"
+        };
+        
+        if (!firebase.apps.length) { 
+            firebase.initializeApp(config); 
+        }
 
+        firebase.auth().onAuthStateChanged((user) => {
+            if (!user) {
+                console.log("access denied");
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+    </body>
 </html>
